@@ -18,15 +18,22 @@ driver.get('https://www.target.com/')
 # wait for 3 sec
 sleep(3)
 
-# click on the cart
-cartanchor = driver.find_element(By.CSS_SELECTOR, "a[data-test=\"@web/CartLink\"]")
-cartanchor.click()
+# click on the sign in button
+signinbutton = driver.find_element(By.XPATH, '//*[@id="account-sign-in"]/span')
+signinbutton.click()
 
 # wait for 3 sec
 sleep(3)
 
-# verify right message is shown
-messageanchor = driver.find_element(By.CSS_SELECTOR, "div[data-test=\"boxEmptyMsg\"]>h1")
-if messageanchor.text == 'Your cart is empty' : print('Test Passed')
+#click on the sidebar's sign in button
+sidesideinbutton = driver.find_element(By.XPATH, '/html/body/div[9]/div/div/div[2]/ul/div/button[1]')
+sidesideinbutton.click()
+
+# wait for 3 sec
+sleep(3)
+
+# verify we're in the right place
+messageanchor = driver.find_element(By.XPATH, '//*[@id="__next"]/div/div/div/div[1]/div/h1/span')
+if messageanchor.text == 'Sign into your Target account' : print('Test Passed')
 
 driver.quit()
