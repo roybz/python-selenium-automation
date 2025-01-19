@@ -18,7 +18,7 @@ def click_sidebar_signin_button(context):
     context.driver.find_element(By.XPATH, '/html/body/div[9]/div/div/div[2]/ul/div/button[1]').click()
     sleep(3)
 
-@then('Verify we are in the right place')
+@then('Verify sign in form opened')
 def verify_we_are_in_right_place(context):
     expected_result = 'Sign into your Target account'
     actual_result = context.driver.find_element(By.XPATH, '//*[@id="__next"]/div/div/div/div[1]/div/h1/span').text
